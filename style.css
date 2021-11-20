@@ -1,9 +1,8 @@
 .container {
     border-style: solid;
     background-color: black;
-    display: flex;
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 600px;
 }
 
 .cell {
@@ -13,7 +12,7 @@
 }
 
 .row {
-    background-color: green;
-    height: 70px;
-    width: 500px;
+    background-color: white;
+    height: 37px;
+    width: 600px;
 }
