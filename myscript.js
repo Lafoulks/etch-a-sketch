@@ -31,11 +31,10 @@ cells.forEach((cell) => {
 });
 
 //Clears grid and generates new grid based on user input
-function clearGrid() {
+function newGrid() {
+  removeAllChildNodes(container);
     //Prompt user input
     const reset = prompt('Enter new grid size: ');
-    //Generates new board based on user input. How to keep in same place as original grid? How to set user input limit to 100?
-    
     for (i = 0; i < reset; i++) {
         const row = document.createElement('div');
         row.classList.add('row')
@@ -56,7 +55,7 @@ function clearGrid() {
     }
 }
 
-//Reset button
+//Clears grid squares
 const btn1 = document.querySelector('#btn1');
 btn1.addEventListener('click', function () {
     cells.forEach((cell) => {
@@ -64,16 +63,14 @@ btn1.addEventListener('click', function () {
     });
 });
 
+//Must delete old grid and generates new grid
 const btn2 = document.querySelector('#btn2');
 btn2.addEventListener('click', function () {
-    clearGrid();
+    newGrid();
 });
 
-/*function removeAllChildNodes(parent) {
-    const container = document.querySelector('#container');
-    removeAllChildNodes(container);
+function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
-*/
