@@ -22,20 +22,28 @@ function createCells (row) {
 
 createRows();
 
-/*Set up a “hover” effect so that the grid divs change color when your mouse passes over them, leaving a (pixelated) trail through your grid like a pen would.
-
-Hint: “Hovering” is what happens when your mouse enters a div and ends when your mouse leaves it. 
-You can set up event listeners for either of those events as a starting point.
-There are multiple ways to change the color of the divs, including:
-    adding a new class to the div.
-    changing the div’s background color using JavaScript.
-*/
-
+//Creates cell color change to black upon mouseover
 let cells = document.querySelectorAll('.cell');
 cells.forEach((cell) => {
     cell.addEventListener('mouseover', () => {
         cell.style.backgroundColor = 'black';
     });
+});
+
+//Clears grid and generates new grid based on user input
+function clearGrid() {
+    //Clears board
+    cells.forEach((cell) => {
+        cell.style.backgroundColor = 'white';
+    });
+    //Prompt user input
+    const reset = prompt('Enter new grid size: ');
+    //generate new board based on user input
+}
+
+const btn = document.querySelector('button');
+btn.addEventListener('click', function () {
+    clearGrid();
 });
 
 
