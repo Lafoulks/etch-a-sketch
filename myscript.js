@@ -38,12 +38,41 @@ function clearGrid() {
     });
     //Prompt user input
     const reset = prompt('Enter new grid size: ');
-    //generate new board based on user input
+    //Generates new board based on user input. How to keep in same place as original grid? How to set user input limit to 100?
+    
+    for (i = 0; i < reset; i++) {
+        const row = document.createElement('div');
+        row.classList.add('row')
+        createCells(row);
+        container.appendChild(row);
+        for (j = 0; j < reset; j++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            row.appendChild(cell);
+        }
+        //Gives event listeners to new board
+        let cells = document.querySelectorAll('.cell');
+        cells.forEach((cell) => {
+          cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = 'black';
+        });
+        });
+    }
 }
 
+//Reset button
 const btn = document.querySelector('button');
 btn.addEventListener('click', function () {
     clearGrid();
 });
 
+
+/*function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+const container = document.querySelector('#container');
+removeAllChildNodes(container);
+*/
 
