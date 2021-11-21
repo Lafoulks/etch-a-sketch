@@ -32,18 +32,48 @@ cells.forEach((cell) => {
 
 //Clears grid and generates new grid based on user input
 function clearGrid() {
-    //Clears board
+    //Prompt user input
+    const reset = prompt('Enter new grid size: ');
+    //Generates new board based on user input. How to keep in same place as original grid? How to set user input limit to 100?
+    
+    for (i = 0; i < reset; i++) {
+        const row = document.createElement('div');
+        row.classList.add('row')
+        createCells(row);
+        container.appendChild(row);
+        for (j = 0; j < reset; j++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            row.appendChild(cell);
+        }
+        //Gives event listeners to new board
+        let cells = document.querySelectorAll('.cell');
+        cells.forEach((cell) => {
+          cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = 'black';
+        });
+        });
+    }
+}
+
+//Reset button
+const btn1 = document.querySelector('#btn1');
+btn1.addEventListener('click', function () {
     cells.forEach((cell) => {
         cell.style.backgroundColor = 'white';
     });
-    //Prompt user input
-    const reset = prompt('Enter new grid size: ');
-    //generate new board based on user input
-}
+});
 
-const btn = document.querySelector('button');
-btn.addEventListener('click', function () {
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', function () {
     clearGrid();
 });
 
-
+/*function removeAllChildNodes(parent) {
+    const container = document.querySelector('#container');
+    removeAllChildNodes(container);
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+*/
