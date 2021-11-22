@@ -1,3 +1,8 @@
+/*What if I:
+-create the inital 16x16 grid
+-create a function with user values to create future grids
+*/
+
 //Setting up container
 const container = document.querySelector('#container');
 container.classList.add('container');
@@ -40,17 +45,18 @@ function newGrid() {
         row.classList.add('row')
         createCells(row);
         container.appendChild(row);
-        for (j = 0; j < reset; j++) {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
-            row.appendChild(cell);
-        }
-        //Gives event listeners to new board
+        
         let cells = document.querySelectorAll('.cell');
         cells.forEach((cell) => {
           cell.addEventListener('mouseover', () => {
             cell.style.backgroundColor = 'black';
         });
+        const btn1 = document.querySelector('#btn1');
+        btn1.addEventListener('click', function () {
+          cells.forEach((cell) => {
+          cell.style.backgroundColor = 'white';
+          });
+         });
         });
     }
 }
