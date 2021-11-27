@@ -1,18 +1,18 @@
 body {
     display: flex;
+    align-items: center;
     flex-direction: column;
     background-color: bisque;
     margin: 0;
  }
   
  h1 {
-    margin-left: 600px;
+    font-size: 60px;
  }
   
  #btn1, #btn2 {
     margin: 0px;
     width: 100px;
-    margin-left: 650px;
  }
   
  .container {
@@ -20,8 +20,8 @@ body {
     flex-wrap: wrap;
     height: 500px;
     width: 500px;
-    border: 50px solid tomato;
-    margin-left: 410px;
+    border: 60px solid tomato;
+    border-radius: 10%;
  }
   
  .cell {
