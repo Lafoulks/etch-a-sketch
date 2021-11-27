@@ -1,25 +1,43 @@
-.container {
-    display: grid;
-    justify-items: start;
-    grid-template-columns: repeat(16, 37px);
-    grid-template-rows: repeat(16, 36px);
-    border: none;
-    height: 600px;
-    width: 600px;
-}
-
-.cell {
-    
-    border: solid;
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    margin: 0;
+ }
+  
+ h1 {
+    margin-left: 600px;
+ }
+  
+ #btn1, #btn2 {
+    margin: 0px;
+    width: 100px;
+    margin-left: 650px;
+ }
+  
+ .container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 500px;
+    border: 50px solid tomato;
+    margin-left: 410px;
+ }
+  
+ .cell {
+    border: 1px solid;
     border-color: gray;
     background-color: white;
-    height: 30px;
-}
-
-.row {
-    align-self: start;
-    border: solid;
+    flex: 1 1 auto;
+    width: 100%;
+ }
+  
+ .column {
+    display: flex;
+    align-items: stretch;
     border-color: gray;
     background-color: white;
-    width: 37px;
-}
+    width: 100%;
+ }
+ 
+ 
