@@ -1,33 +1,44 @@
-/*What if I:
--create the inital 16x16 grid
--create a function with user values to create future grids
-*/
-
 //Setting up container
 const container = document.querySelector('#container');
 container.classList.add('container');
 
-//Creating grid row and cells
-function createRows () {
-    for (i = 0; i < 16; i++) {
-        const row = document.createElement('div');
-        row.classList.add('row')
-        createCells(row);
-        container.appendChild(row);
+//Creates initial grid
+let reset = prompt('Please enter a grid size between 1-100: '); 
+
+function createColumns () {
+    for (let i = 0; i < reset; i++) {
+        const column = document.createElement('div');
+        column.classList.add('column')
+        createCells(column);
+        container.appendChild(column);
     }
 }
 
-function createCells (row) {
-    for (j = 0; j < 16; j++) {
+function createCells (column) {
+    for (let j = 0; j < reset ; j++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
-        row.appendChild(cell);
+        column.appendChild(cell);
     }
 }
 
-createRows();
+createColumns();
 
-//Creates cell color change to black upon mouseover
+//Button resets initial grid squares to white
+const btn1 = document.querySelector('#btn1');
+btn1.addEventListener('click', function () {
+    cells.forEach((cell) => {
+        cell.style.backgroundColor = 'white';
+    });
+});
+
+//Button click for new grid generation
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', function () {
+    newGrid();
+});
+
+//Black mouseover for initial grid squares
 let cells = document.querySelectorAll('.cell');
 cells.forEach((cell) => {
     cell.addEventListener('mouseover', () => {
@@ -35,22 +46,32 @@ cells.forEach((cell) => {
     });
 });
 
-//Clears grid and generates new grid based on user input
+//Deletes grid
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+//Generates new grid based on prompt input
 function newGrid() {
   removeAllChildNodes(container);
-    //Prompt user input
-    const reset = prompt('Enter new grid size: ');
+  reset = prompt('Please enter a grid size between 1-100: ');
     for (i = 0; i < reset; i++) {
-        const row = document.createElement('div');
-        row.classList.add('row')
-        createCells(row);
-        container.appendChild(row);
+        const column = document.createElement('div');
+        column.classList.add('column')
+        createCells(column);
+        container.appendChild(column);
+        }
         
+        //Black mouseover for new grid
         let cells = document.querySelectorAll('.cell');
         cells.forEach((cell) => {
           cell.addEventListener('mouseover', () => {
             cell.style.backgroundColor = 'black';
         });
+
+        //Resets new grid squares to white
         const btn1 = document.querySelector('#btn1');
         btn1.addEventListener('click', function () {
           cells.forEach((cell) => {
@@ -59,24 +80,3 @@ function newGrid() {
          });
         });
     }
-}
-
-//Clears grid squares
-const btn1 = document.querySelector('#btn1');
-btn1.addEventListener('click', function () {
-    cells.forEach((cell) => {
-        cell.style.backgroundColor = 'white';
-    });
-});
-
-//Must delete old grid and generates new grid
-const btn2 = document.querySelector('#btn2');
-btn2.addEventListener('click', function () {
-    newGrid();
-});
-
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
