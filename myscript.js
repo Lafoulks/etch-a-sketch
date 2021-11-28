@@ -11,10 +11,9 @@ function createColumns () {
         column.classList.add('column')
         createCells(column);
         container.appendChild(column);
-        }
-        
+        } 
     }
-    
+
 function createCells (column) {
     for (let j = 0; j < reset ; j++) {
         const cell = document.createElement('div');
